@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/StartFragment"
+    android:id="@+id/jokes_nav">
+
+    <fragment
+        android:id="@+id/StartFragment"
+        android:name="com.example.chucknorrisapp.views.StartFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_start">
+
+        <action
+            android:id="@+id/action_StartFragment_to_OneJokeFragment"
+            app:destination="@id/OneJokeFragment" />
+        <action
+            android:id="@+id/action_StartFragment_to_TextInputFragment"
+            app:destination="@id/TextInputFragment" />
+        <action
+            android:id="@+id/action_StartFragment_to_NeverEndingListFragment"
+            app:destination="@id/NeverEndingListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/OneJokeFragment"
+        android:name="com.example.chucknorrisapp.views.OneJokeFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_one_joke">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/TextInputFragment"
+        android:name="com.example.chucknorrisapp.views.TextInputFragment"
+        android:label="Text input"
+        tools:layout="@layout/fragment_text_input">
+
+        <action
+            android:id="@+id/action_TextInputFragment_to_CustomNameJokeFragment"
+            app:destination="@id/CustomNameJokeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/CustomNameJokeFragment"
+        android:name="com.example.chucknorrisapp.views.CustomNameJokeFragment"
+        android:label="Custom name joke"
+        tools:layout="@layout/fragment_custom_name_joke">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/NeverEndingListFragment"
+        android:name="com.example.chucknorrisapp.views.NeverEndingListFragment"
+        android:label="Never ending list"
+        tools:layout="@layout/fragment_never_ending_list">
+
+    </fragment>
+
+</navigation>

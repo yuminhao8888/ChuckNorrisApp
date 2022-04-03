@@ -18,20 +18,12 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-//    @Inject
-//    lateinit var jokesRepository: JokesRepository
-//
-//    public val viewModel by lazy {
-//        ViewModelProvider(this, JokesViewModelFactory(jokesRepository))[JokesViewModel::class.java]
-//    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         Log.d("destroy", "activity is created")
         JokesApp.jokesComponent.inject(this)
-        //JokesApp.jokesComponent.inject(this)
 
         val navController = findNavController(R.id.frag_nav_container)
         setupActionBarWithNavController(navController)
@@ -40,6 +32,5 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d("destroy", "activity is destroyed")
-        //viewModel.isScreenRotated = true
     }
 }

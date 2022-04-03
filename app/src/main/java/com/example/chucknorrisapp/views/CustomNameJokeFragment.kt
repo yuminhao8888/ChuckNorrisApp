@@ -50,7 +50,6 @@ class CustomNameJokeFragment : BaseFragment() {
 
         viewModel.jokes.observe(viewLifecycleOwner, ::handleState)
         Log.d("viewmodel", "after viewmodel")
-        //weatherViewModel.setCityName()
 
         viewModel.getRandomJokeByName(firstName,lastName)
         return binding.root
@@ -80,30 +79,10 @@ class CustomNameJokeFragment : BaseFragment() {
         AlertDialog.Builder(context)
             .setMessage(joke)
             .setCancelable(false)
-            .setNegativeButton("Dismiss", DialogInterface.OnClickListener {
-                    dialog, id -> dialog.cancel()
-            })
+            .setNegativeButton("Dismiss") { dialog, id ->
+                dialog.cancel()
+            }
             .create()
             .show()
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CustomNameJokeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CustomNameJokeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }

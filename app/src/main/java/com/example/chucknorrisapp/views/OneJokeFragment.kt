@@ -50,7 +50,6 @@ class OneJokeFragment : BaseFragment() {
         //Log.d("viewmodel", "before viewmodel")
         viewModel.jokes.observe(viewLifecycleOwner, ::handleState)
         Log.d("viewmodel", "after viewmodel")
-        //weatherViewModel.setCityName()
 
         viewModel.getRandomJoke()
         return binding.root
@@ -65,8 +64,6 @@ class OneJokeFragment : BaseFragment() {
                 val joke = (resultState as ResultState.SUCCESS<ResultOne>).response.value.joke
                 Log.d("joke1", joke)
                 displayInDialog(joke)
-                //ResultState.SUCCESS<ResultOne>
-                //weatherAdapter.setForecast(resultState.results.value)
             }
             is ResultState.ERROR -> {
                 Log.e("FORECAST", resultState.error.localizedMessage, resultState.error)

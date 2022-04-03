@@ -48,7 +48,6 @@ class NetworkModule {
         return Retrofit.Builder()
             .baseUrl(JokesApi.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))
-
             .client(okHttpClient)
             .build()
             .create(JokesApi::class.java)

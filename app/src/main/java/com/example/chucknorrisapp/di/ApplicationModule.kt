@@ -13,7 +13,4 @@ class ApplicationModule (
 
     @Provides
     fun providesApplicationContext() = applicationContext
-
-
-
 }

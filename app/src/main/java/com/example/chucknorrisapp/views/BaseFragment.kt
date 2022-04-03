@@ -18,7 +18,7 @@ open class BaseFragment : Fragment() {
     @Inject
     lateinit var jokesRepository: JokesRepository
 
-    public val viewModel by lazy {
+    val viewModel by lazy {
         ViewModelProvider(requireActivity(), JokesViewModelFactory(jokesRepository))[JokesViewModel::class.java]
     }
 

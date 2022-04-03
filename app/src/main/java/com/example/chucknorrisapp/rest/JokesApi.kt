@@ -17,18 +17,10 @@ interface JokesApi {
     suspend fun getOneRandomJOkeByName(
         @Query("firstName") firstName: String,
         @Query("lastName") lastName: String
-
     ): Response<ResultOne>
 
     @GET(ONE_BATCH_JOKE)
     suspend fun getRandomJOkeByBatch(): Response<Results>
-//
-//    @GET("{movie_id}")
-//    suspend fun getAllDetailsMovies(
-//        @Path("movie_id") movieID: Int,
-//        @Query("api_key") apiKey: String = API_KEY,
-//        @Query("language") language: String = LANGUAGE
-//    ): Response<MoviesDetails>
 
     companion object{
 

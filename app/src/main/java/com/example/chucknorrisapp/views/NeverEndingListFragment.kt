@@ -40,10 +40,6 @@ class NeverEndingListFragment : BaseFragment() {
         JokesAdapter()
     }
 
-    private val activity by lazy {
-        getActivity() as MainActivity
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -75,12 +71,6 @@ class NeverEndingListFragment : BaseFragment() {
                 }
             })
         }
-        // Inflate the layout for this fragment
-//        viewModel.jokes.observe(viewLifecycleOwner, ::handleState)
-//        Log.d("viewmodel", "after viewmodel")
-//        //weatherViewModel.setCityName()
-//
-//        viewModel.getRandomJokeByBatch()
 
         Log.d("observe", "before observe")
         viewModel.jokes.observe(viewLifecycleOwner) { resultState ->
@@ -95,9 +85,6 @@ class NeverEndingListFragment : BaseFragment() {
                     val jokes = (resultState as ResultState.SUCCESS<Results>).response.value
                     jokeAdapter.updateJokes(jokes)
                     Log.d("joke12", jokes[0].joke)
-                    //displayInDialog(joke)
-                    //ResultState.SUCCESS<ResultOne>
-                    //weatherAdapter.setForecast(resultState.results.value)
                 }
                 is ResultState.ERROR -> {
                     Log.e("FORECAST", resultState.error.localizedMessage, resultState.error)
@@ -111,7 +98,6 @@ class NeverEndingListFragment : BaseFragment() {
 
         Log.d("screen", "after not screen rotated")
 
-        //giveawaysViewModel.getSortedGiveaways()
         return binding.root
     }
 
@@ -129,9 +115,6 @@ class NeverEndingListFragment : BaseFragment() {
                 val jokes = (resultState as ResultState.SUCCESS<Results>).response.value
                 jokeAdapter.updateJokes(jokes)
                 Log.d("joke12", jokes[0].joke)
-                //displayInDialog(joke)
-                //ResultState.SUCCESS<ResultOne>
-                //weatherAdapter.setForecast(resultState.results.value)
             }
             is ResultState.ERROR -> {
                 Log.e("FORECAST", resultState.error.localizedMessage, resultState.error)
